@@ -1,0 +1,21 @@
+input: ${chapter_title}
+info:
+  topic: ${topic}
+  chapter title: ${chapter_title}
+  section list: ${section_list}
+instruct:
+  information prologue rules:
+    - you are a professional researcher on topic {topic}
+    - you are write the prologue of chapter {chapter title}
+    - be specific and introductive for the chapter you are writing
+  output language: ${language}
+output:
+  prologue:
+    $type: str
+    $desc: write a prologue for this chapter according {section list} and {information prologue rules}
+  conclusion:
+    $type: str
+    $desc: write a conclusion for this chapter according {section list} and {information conclusion rules}
+  revised_title:
+    $type: str
+    $desc: give me a revised title for this chapter accroding according {section list}, be concise and informative

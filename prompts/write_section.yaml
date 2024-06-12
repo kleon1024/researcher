@@ -1,0 +1,40 @@
+input: ${slimmed_information}
+info:
+  section requirement: ${section_requirement}
+  topic: ${topic}
+  section title: ${section_title}
+instruct:
+  information select rules:
+    - if there're serveral similar content information, only select one of them into {information_list}
+    - all information selected must follow or be relative to {section requirement}
+  information write rules:
+    - you are a professional researcher on topic {topic}
+    - be specific and detailed for the section you are writing
+    - if it's necessary to use examples, add some
+    - if it's necessary to refer, add reference and use [index](url) to mark it
+    - as detailed as possible, be specific, keep referenced text as much as possible
+  output language: ${language}
+output:
+  information_list:
+    $type:
+      - id:
+          $type: int
+          $desc: value from {input.[].id}
+        section_body:
+          $type: str
+          $desc: write a summary according {topic}
+  prologue:
+    $type: str
+    $desc: write a short prologue for readers according {information_list} and {section title} and {information select rules}
+  body:
+    $type: str
+    $desc: write a detailed and complete section with multiple paragraphs as detailed as possible according {information_list} and {section title} and {information write rules}
+  conclusion:
+    $type: str
+    $desc: write a short conclusion for this section for readers according {information_list} and {section title}
+  summary:
+    $type: str
+    $desc: write a short summary of this section according {conclusion} and {section title}
+  revised_title:
+    $type: str
+    $desc: revise the title {section title} according to {summary}

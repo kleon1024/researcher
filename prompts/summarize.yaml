@@ -1,0 +1,18 @@
+input: ${article_content}
+info:
+  column requirement: ${chapter_requirement}
+  column title: ${column_title}
+instruct:
+  output language: ${language}
+  summary rule:
+    - find and summarize the main content part of the article content which is collected from webpage
+    - summary focus on relative content to {column requirement} and {column title}
+    - summary in one paragraph without linebreak or add soft \n to break
+    - keep the details as much as possible
+output:
+  can_summarize:
+    $type: bool
+    $desc: judge if {input} has enough relative cotnent to be summarized
+  summary:
+    $type: str
+    $desc: summarize {input} according {info} and {instruct} if {can_summarize} == true in detail, or output null

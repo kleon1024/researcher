@@ -1,0 +1,20 @@
+input: ${topic}
+info:
+    reference title: ${reference_title}
+    chapter list: ${chapter_list}
+instruct:
+    task: Based on the given topic {input}, prepare the metadata for a research overview
+    output language: ${language}
+output:
+    report_title:
+        $type: str
+        $desc: Generate a concise and informative and attractive title for the article on the given topic {input} and chapters {chapter list} and reference title {reference title}
+    tags:
+        $type: str
+        $desc: Generte core keywords for SEO on the given topic {input} and chapters {chapter list}, concatenated by comma
+    summary:
+        $type: str
+        $desc: Generate SEO friendly short brief of the whole artitle on the given topic {input} and chapters {chapter list} and {report_title} and {tags}
+    filename:
+        $type: str
+        $desc: Generate filename only english and - on the given title {report_title} 

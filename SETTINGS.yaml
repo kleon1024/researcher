@@ -1,0 +1,26 @@
+# Debug Settings
+IS_DEBUG: false
+# Proxy Settings
+# PROXY: 
+# Model Settings
+MODEL_PROVIDER: OAIClient
+MODEL_URL: http://127.0.0.1:9997/v1
+MODEL_AUTH:
+  api_key: nothing
+MODEL_OPTIONS:
+  model: qwen2-instruct
+  temperature: 0.1
+# Application Settings
+MAX_CHAPTER_NUM: 8
+MAX_SECTION_NUM: 3
+OUTPUT_LANGUAGE: Chinese
+ADVANCED_MODE: true
+MAX_SEARCH_RESULTS: 8
+ENABLE_SEARCH: true
+SLEEP_TIME: 0
+MDX: true
+# Outline Settings
+USE_CUSTOMIZE_OUTLINE: false
+CUSTOMIZE_OUTLINE:
+  report_title: "Vision Pro技术原理综述"
+  column_list:

@@ -1,0 +1,33 @@
+input: ${slimmed_information}
+info:
+  column requirement: ${chapter_requirement}
+  topic: ${topic}
+instruct:
+  information select rules:
+    - if there're serveral similar content information, only select one of them into {information_list}
+    - all information selected must follow or be relative to {column requirement}
+  information write rules:
+    - you are a professional researcher on topic {topic}
+    - be specific and detailed for the chapter you are writing
+    - if it's necessary to use examples, add some
+    - if it's necessary to refer, add reference and use [index](url) to mark it
+    - as detailed as possible
+  output language: ${language}
+output:
+  information_list:
+    $type:
+      - id:
+          $type: int
+          $desc: value from {input.[].id}
+        section_body:
+          $type: str
+          $desc: write a summary 
+  prologue:
+    $type: str
+    $desc: write a prologue for readers according {information_list} and {information select rules}
+  body:
+    $type: str
+    $desc: write a full article for this chapter for readers according {information_list} and {information write rules}
+  conclusion:
+    $type: str
+    $desc: write a conclusion for this chapter for readers according {information_list}

@@ -1,0 +1,23 @@
+input: ${topic}
+instruct:
+    task: Based on the given topic {input}, prepare a detailed outline for a research overview
+    output language: ${language}
+output:
+    report_title:
+        $type: str
+        $desc: Generate a concise and informative title for the research overview on the given topic {input}
+    chapter_list:
+        $type:
+            - chapter_title:
+                  $type: str
+                  $desc: Provide a clear and descriptive title for each major section or theme of the research overview
+              chapter_requirement:
+                  $type: str
+                  $desc: Describe the specific requirements or focus areas that should be covered within this section to ensure comprehensive coverage of the topic {input}
+              search_keywords:
+                  $type: str
+                  $desc: List relevant keywords separated by spaces including the keyword {input} and {section_title}, be concise and precise, not more than 5 words
+        $desc: Outline should have a maximum of ${max_chapter_num} major sections or themes
+    keyword:
+        $type: str
+        $desc: the core keyword of {input}

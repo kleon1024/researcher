@@ -1,0 +1,15 @@
+input: ${article}
+instruct:
+  articles select rules:
+    - ${requirement}
+    - if several article are similar, just retain the one with most famous source and output {can_use} as false for others
+output:
+  - id:
+      $type: int
+      $desc: value from {input.[].id}
+    can_use:
+      $type: bool
+      $desc: judge if {input.brief} can be used according {instruct}
+    section_body:
+      $type: str
+      $desc: provide your recommend comment if {can_use} == true, or just output null

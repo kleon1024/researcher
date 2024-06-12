@@ -1,0 +1,21 @@
+input: ${topic}
+info:
+    chapter title: ${chapter_title}
+    chapter requirement: ${chapter_requirement}
+    search keywords: ${search_keywords}
+instruct:
+    task: Based on the given topic {input} and {chapter title} and {chapter requirement} and {search keywords}, prepare an outline for this chapter
+    output language: ${language}
+output:
+    section_list:
+        $type:
+            - section_title:
+                  $type: str
+                  $desc: Provide a clear and descriptive title for the section or theme of the research overview according {chapter title} and {chapter requirement} and {search keywords}
+              section_requirement:
+                  $type: str
+                  $desc: Describe the specific requirements or focus areas that should be covered within this section to ensure comprehensive coverage of the topic {input} and chapter {chapter title} and {chapter requirement} and {search keywords}
+              search_keywords:
+                  $type: str
+                  $desc: List relevant keywords separated by spaces including the keyword {input} (must have) {section_title}, be concise and precise, not more than 5 words
+        $desc: Outline should have a maximum of ${max_section_num} major sections or themes
